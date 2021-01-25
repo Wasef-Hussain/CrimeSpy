@@ -1,0 +1,252 @@
+
+  .bodyform{
+   background: rgb(34,193,195);
+   background: linear-gradient(135deg, rgba(34,193,195,1) 0%,     rgba(253,187,45,1) 100%);
+   font-family: "work sans";
+   height: 100%;
+  }
+  
+  html{
+    font-size: 100%;
+  }
+  
+ .authBox{
+   width: 700px;
+    overflow: hidden;
+    margin: 0px auto 2px;
+    height: 100%;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+ }
+ .leftBox{
+    width: 300px;
+    height: 480px;
+    float: left;
+    position: relative;
+    display: block;
+    border: 2px solid #59c385;
+   
+ }
+
+ .bgGreen{
+     width: 100%;
+     height: 100%;
+     background-color: rgb(19, 170, 82);
+     border-top-left-radius: 90px;
+ }
+ .imageAuth{
+     background-image: url("/src/graphics/backgound\ \(1\).jpg");
+     width: 100%;
+     height: 100%;
+     background-position: center;
+     background-size: cover;
+     background-repeat: no-repeat;
+     border-top-left-radius: 90px;
+     opacity: 0.5;
+     position: absolute;
+     top: 0;
+     left: 0;
+
+ }
+
+ .imageText{
+    font-size: 28px;
+    position: absolute;
+    color: #fff;
+
+ }
+
+ .imageText.bold{
+    font-weight: bold;
+
+ }
+
+ .imageText.style1{
+    top:200px;
+    left: 20px;
+
+ }
+
+ .imageText.style2{
+    top:250px;
+    left: 20px;
+}
+  
+ .rightBox{
+    width: 400px;
+    height: 480px;
+    float: right;
+    border: 2px solid #59c385;
+   
+ }
+
+ .box{
+    width: 310px;
+    height: 415px;
+    margin: 32px auto;
+
+ }
+
+ .titleAuth{
+    font-size: 22px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: #116149;
+ }
+
+ .inputSBox{
+    width: 300px;
+    height: 42px;
+    border-bottom: 2px solid #d8d8d8;
+    margin-bottom: 10px;
+ }
+
+ .inputS{
+    width: 100%;
+    height: 98%;
+   font-size: 14px;
+   color: #37353f;
+   text-indent: 10px;
+   border: 0;
+   border-radius: 5px;
+   outline: none;
+ }
+
+ .contentBox{
+    overflow: hidden;
+    height: 42px;
+    margin-bottom: 30px;
+ }
+
+ .checkboxBox{
+    overflow: hidden;
+    float: left;
+
+ }
+
+ .checkbox{
+   
+    float: left;
+ }
+
+ .checkboxLabel{
+    float: left;
+    font-size: 14px;
+    margin-left: 5px;
+    color: #37353f;
+ }
+
+ 
+ .text1{
+    float: right;
+    font-size: 14px;
+    color: #006cbc;
+    cursor: pointer;
+
+
+ }
+
+ .btnAuth{
+    width: 300px;
+    height: 47px;
+    color: #ffffff;
+    background-color: rgb(18, 161, 78);
+    text-align: center;
+    line-height: 47px;
+    border-radius: 4px;
+    cursor: pointer;
+
+
+ }
+ 
+ .borderBox{
+    width: 300px;
+    height: 47px;
+    position: relative;
+    margin:20px 0;
+ }
+
+
+ .line{
+    border-bottom: 2px solid #d8d8d8;
+    position: absolute;
+    top: 22px;
+    width: 100%;
+
+ }
+
+ .text2{
+    font-size: 14px;
+    color: #818487;
+
+ }
+
+ .text2.or{
+    position: absolute;
+    top: 14px;
+    left: 140px;
+    width: 25px;
+    height: 16px;
+    background-color: #18d36f;
+    text-align: center;
+ }
+
+ .socialMediaBox{
+    overflow: hidden;
+    width: 184px;
+    height: 47px;
+    margin: 0 auto;
+
+ }
+
+ .icAuth{
+   width: 41px;
+   height: 45px;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+   float: left;
+   margin-right: 30px;
+   cursor: pointer;
+ }
+
+
+ .icAuth:last-child{
+    margin-right: 0;
+ }
+
+ .icAuth.google{
+    background-image: url("/src/graphics/icons8-google-50.png");
+ }
+
+ .icAuth.facebook{
+   background-image: url("/src/graphics/icons8-facebook-50.png");
+}
+
+
+
+.icAuth.twitter{
+   background-image: url("/src/graphics/icons8-twitter-50.png");
+}
+
+@media screen and (max-width:768px){
+   .authBox{
+      width: 100%;
+   }
+
+
+   .leftBox{
+      display: none;
+   }
+
+   .rightBox{
+      width: 100%;
+     
+      float: initial;
+      border: 0;
+
+
+   }
+}
+
