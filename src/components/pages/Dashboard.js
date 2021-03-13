@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react'
 import { Typography, Paper, Avatar, CircularProgress, Button } from '@material-ui/core'
 import VerifiedUserOutlined from '@material-ui/icons/VerifiedUserOutlined'
 import withStyles from '@material-ui/core/styles/withStyles'
-import firebase from '../firebase'
+// import firebase from '../firebase'
 import { useAuth} from '../../LoginContext'
 import { withRouter,  useHistory } from 'react-router-dom'
+import firebase from 'firebase/app'
 
 const styles = theme => ({
     main: {
@@ -36,7 +37,7 @@ const styles = theme => ({
 
 function Dashboard(props) {
     const { classes } = props
-    const { currentUser, logout } = useAuth()
+    const { currentUser, logout,submitsignInWithGoogle, addfbuser } = useAuth()
     const [error, setError] = useState("")
     const history = useHistory()
 
@@ -46,6 +47,9 @@ function Dashboard(props) {
         props.history.replace('/login')
         return null
     }
+
+    
+    
 
 
     async function handleLogout() {
@@ -60,7 +64,7 @@ function Dashboard(props) {
       }
       console.log(currentUser)
 
-
+      
 
 
     return (
@@ -70,15 +74,16 @@ function Dashboard(props) {
                     <VerifiedUserOutlined />
                 </Avatar>
                 <Typography component="h1" variant="h5">
-                    Hello {currentUser.email}
+                    Hello {currentUser.displayName}
                 </Typography>
+                <img alt="profile pic" src={firebase.auth().currentUser.photoURL}/>
 
                 <Button
                     type="submit"
                     fullWidth
                     variant="contained"
                     color="secondary"
-                    onClick={handleLogout}
+                    onClick={()=> firebase.auth().signOut()}
                     className={classes.submit}>
                     Logout
           		</Button>

@@ -6,6 +6,7 @@ import {
     FaFacebook,
     FaInstagram,
     FaYoutube,
+    FaGoogle,
     FaTwitter,
     FaLinkedin
 } from 'react-icons/fa';
@@ -52,9 +53,8 @@ function Footer() {
 
                     <div className='footer-link-items'>
                         <h2>Social Media</h2>
-                        <Link to='/'>Instagram</Link>
                         <Link to='/'>Facebook</Link>
-                        <Link to='/'>Youtube</Link>
+                        <Link to='/'>Google</Link>
                         <Link to='/'>Twitter</Link>
                     </div>
                 </div>
@@ -81,20 +81,11 @@ function Footer() {
                             className='social-icon-link'
                             to='/'
                             target='_blank'
-                            aria-label='Instagram'
+                            aria-label='Google'
                         >
-                            <FaInstagram />
+                            <FaGoogle />
                         </Link>
-                        <Link
-                            className='social-icon-link'
-                            to={
-                                '//www.youtube.com/channel/UCsKsymTY_4BYR-wytLjex7A?view_as=subscriber'
-                            }
-                            target='_blank'
-                            aria-label='Youtube'
-                        >
-                            <FaYoutube />
-                        </Link>
+                       
                         <Link
                             className='social-icon-link'
                             to='/'
@@ -103,14 +94,7 @@ function Footer() {
                         >
                             <FaTwitter />
                         </Link>
-                        <Link
-                            className='social-icon-link'
-                            to='/'
-                            target='_blank'
-                            aria-label='LinkedIn'
-                        >
-                            <FaLinkedin />
-                        </Link>
+                  
                     </div>
                 </div>
             </section>

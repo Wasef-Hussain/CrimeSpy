@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react"
 import { Form, Button, Card, Alert } from "react-bootstrap"
 import { useAuth } from "../../../LoginContext"
 import { Link } from "react-router-dom"
+import './Register.css'
 
 export default function ForgotPassword() {
     const emailRef = useRef()
@@ -28,8 +29,10 @@ export default function ForgotPassword() {
 
     return (
         <>
+         <div className={'bodyform'}>
             <Card>
                 <Card.Body>
+                   
                     <h2 className="text-center mb-4">Password Reset</h2>
                     {error && <Alert variant="danger">{error}</Alert>}
                     {message && <Alert variant="success">{message}</Alert>}
@@ -44,11 +47,14 @@ export default function ForgotPassword() {
                     </Form>
                     <div className="w-100 text-center mt-3">
                         <Link to="/login">Login</Link>
+                   
                     </div>
+                   
                 </Card.Body>
             </Card>
             <div className="w-100 text-center mt-2">
                 Need an account? <Link to="/register">Sign Up</Link>
+            </div>
             </div>
         </>
     )

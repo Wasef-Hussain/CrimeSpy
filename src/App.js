@@ -21,49 +21,109 @@ import firebase from './components/firebase'
 import Dashboard from './components/pages/Dashboard';
 import Register from './components/pages/Login/Register';
 import PrivateRoute from './components/PrivateRoute'
+import AdminDashboard from './components/Dashboard/Dashboard'
 
+
+const routes = [
+  {
+      path: "/",
+      layout: true,
+      component: Home
+  },
+
+  {
+    path: "/register",
+    layout: true,
+    component: Register
+  },
+  {
+    path: "/dashboard",
+    layout: true,
+    component: Dashboard
+  },
+
+
+  {
+    path: "/login",
+    layout: true,
+    component: Login
+  },
+
+  {
+    path: "/map",
+    layout: true,
+    component: Mapcrime
+  },
+
+  
+
+  {
+    path: "/help",
+    layout: true,
+    component: Pagehelp
+  },
+
+  {
+    path: "/about",
+    layout: true,
+    component: Aboutpage
+  },
+  {
+    path: "/passwordreset",
+    layout: true,
+    component: PasswordReset
+  },
+
+  {
+    path: "/admin",
+    layout: false,
+    component: AdminDashboard
+  }
+
+
+
+
+]
 
 function App() {
- 
 
-  return  (
+
+  return (
 
     <UserProvider >
-      
+     
       <Router>
-        <Navbar />
-        <Switch>
-          <Route path='/' exact component={Home} />
 
-          <Route path='/register'>
-            <Register />
-          </Route>
-          <Route path='/login'>
-            <Login />
-          </Route>
-          <Route path='/map'>
-            <Mapcrime />
-          </Route>
-          <PrivateRoute exacth path="/dashboard" component= {Dashboard}/>
-            
-          <Route path='/help'>
-            <Pagehelp />
-          </Route>
-          <Route path='/about'>
-            <Aboutpage />
-          </Route>
-          <Route>
-            <PasswordReset path='./passwordreset' />
-          </Route>
-         
+        
+        <Switch>
+
+          {
+            routes.map(
+              (route, index) => 
+              <PrivateRoute key={`route-${index}`} exact path={route.path} layout={true}>
+                {route.layout && <Navbar />}
+                <route.component />
+                {route.layout && <Footer />}
+                </PrivateRoute>
+                
+                
+                
+                
+                )
+          }
+
+          
         </Switch>
-       
-        <Footer />
+
+   
       </Router>
+      
     </UserProvider>
 
 
-  ) 
+  )
 }
+
+
 
 export default App;

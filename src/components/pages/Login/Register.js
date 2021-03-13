@@ -39,7 +39,7 @@ const Register = (props) => {
         try {
             setError('')
             setLoading(true)
-            await signup(emailRef.current.value, passwordRef.current.value)
+            await signup(emailRef.current.value, passwordRef.current.value, usernameRef.current.value, fullnameRef.current.value)
             
             history.push("/dashboard")
         } catch {
@@ -49,6 +49,7 @@ const Register = (props) => {
 
 
     }
+ 
     // const createUserWithEmailAndPasswordHandler = async (event, email, password) => {
     //     event.preventDefault();
     //     try {
@@ -115,7 +116,7 @@ const Register = (props) => {
     return (
         <>
             {currentUser?
-                 ''
+                 <h1>400 Error</h1>
             :
             <form className='form' onSubmit={handleSubmit}>
 
@@ -155,13 +156,13 @@ const Register = (props) => {
      
                                  </div>
      
-                                 <div className={'btnAuth'} ><button style={{ border: 'none' }} type='submit' disabled={loading}
+                                 <div className={'btnAuth'} ><button style={{ border: 'none',background:'#50c2ec' }} type='submit' disabled={loading}
                                  >Register</button></div>
      
                                  <div className={'contentBox'}>
      
                                      <div className={'text1'}>
-                                         <Link to='/login' id="btnlink" style={{ textDecoration: 'none' }}  >
+                                         <Link to='/login' id="btnlink" style={{ textDecoration: 'none', color: '#ecedec' }}  >
                                              Already have an account?
                                          </Link>
                                      </div>

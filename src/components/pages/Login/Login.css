@@ -1,7 +1,7 @@
 
   .bodyform{
-   background: rgb(34,193,195);
-   background: linear-gradient(135deg, rgba(34,193,195,1) 0%,     rgba(253,187,45,1) 100%);
+   
+   background:  #253340;
    font-family: "work sans";
    height: 100%;
   }
@@ -24,7 +24,7 @@
     float: left;
     position: relative;
     display: block;
-    border: 2px solid #59c385;
+    border: 2px solid #253340;
    
  }
 
@@ -76,7 +76,8 @@
     width: 400px;
     height: 480px;
     float: right;
-    border: 2px solid #59c385;
+    border: 1px solid #59c385;
+    border-top-right-radius: 90px
    
  }
 
@@ -156,6 +157,8 @@
     line-height: 47px;
     border-radius: 4px;
     cursor: pointer;
+    margin: auto;
+    margin-bottom: 18px;
 
 
  }

@@ -1,5 +1,8 @@
 import React, { useContext, createContext, useState, useEffect } from 'react';
-import { auth,db } from './components/firebase'
+import { auth,db, facebookProvider , googleProvider } from './components/firebase'
+import { Link, useHistory } from 'react-router-dom';
+import firebase from 'firebase/app'
+
 
 
 
@@ -13,8 +16,9 @@ export function useAuth() {
 export function UserProvider({ children }) {
     const [currentUser, setCurrentUser] = useState()
     const [loading, setLoading] = useState(true)
+    let history = useHistory();
     
-    function signup(email, password) {
+    function signup(email, password, username, fullname) {
         return auth.createUserWithEmailAndPassword(email, password)
         .then(async result =>{
             db.collection('users')
@@ -23,6 +27,8 @@ export function UserProvider({ children }) {
                 email,
                 id:result.user.uid,
                 password,
+                username,
+                fullname,
                 URL:'',
                 messages:[{notificationId:"", number:0}] 
 
@@ -37,12 +43,52 @@ export function UserProvider({ children }) {
     }
     function logout() {
         return auth.signOut()
+        history.push("/login")
     }
     function resetPassword(email) {
         return auth.sendPasswordResetEmail(email)
     }
+ function submitsignInWithFacebook()
+ {
+     return auth.signInWithPopup(facebookProvider).then((result,error)=>{
+         if(error)
+         {
+             alert('Error', error);
+         }
+         else {
+             alert(result)
+         }
+     });
+ }
 
+ function addfbuser(email,displayName)
+ {
+    db.collection('users')
+    .add({
+        
+        email,
+       displayName,
+        URL:'',
+        messages:[{notificationId:"", number:0}] 
 
+    }).then((docRef)=>{
+
+    });
+ }
+ function submitsigninwithPhone(number, name)
+ {
+    console.log(number)
+
+ }
+
+ 
+
+ function submitsignInWithGoogle()
+ {
+     return auth.signInWithPopup(googleProvider).then((result)=>{
+        
+     });
+ }
 
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged(user => {
@@ -60,7 +106,11 @@ export function UserProvider({ children }) {
         signup,
         login,
         logout,
-        resetPassword
+        resetPassword,
+        submitsignInWithFacebook,
+        submitsignInWithGoogle,
+        submitsigninwithPhone,
+        addfbuser
     }
 
     return (
