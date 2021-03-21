@@ -22,8 +22,11 @@ import Dashboard from './components/pages/Dashboard';
 import Register from './components/pages/Login/Register';
 import PrivateRoute from './components/PrivateRoute'
 import AdminDashboard from './components/Dashboard/Dashboard'
-
-
+import Udashboard from './components/pages/UserArea/udashboard'
+import { ChakraProvider, extendTheme } from "@chakra-ui/react"
+import {createBreakpoints} from '@chakra-ui/theme-tools'
+const breakpoints = createBreakpoints({"640px":"640px"})
+const mytheme = extendTheme({breakpoints});
 const routes = [
   {
       path: "/",
@@ -78,8 +81,13 @@ const routes = [
     path: "/admin",
     layout: false,
     component: AdminDashboard
+  },
+  
+  {
+    path: "/beta",
+    layout: false,
+    component: Udashboard
   }
-
 
 
 
@@ -89,7 +97,7 @@ function App() {
 
 
   return (
-
+    <ChakraProvider theme={mytheme}>
     <UserProvider >
      
       <Router>
@@ -119,7 +127,7 @@ function App() {
       </Router>
       
     </UserProvider>
-
+    </ChakraProvider>
 
   )
 }

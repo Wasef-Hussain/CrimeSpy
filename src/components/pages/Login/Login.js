@@ -72,7 +72,7 @@ const Login = (props) => {
              setLoading(true)
             // // await login(emailRef.current.value, passwordRef.current.value)
             await submitsignInWithFacebook() 
-            history.push("/dashboard")
+            history.push("/beta")
             // console.log('working')
         } catch {
             setError('Failed to Sign In')

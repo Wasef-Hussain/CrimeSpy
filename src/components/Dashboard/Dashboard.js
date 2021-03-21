@@ -164,7 +164,7 @@ export default function Dashboard() {
                     </IconButton>
                     <Typography component="h1" variant="h5" color="inherit" noWrap className={classes.title}>
                         CrimeSpy Admin Dashboard
-          </Typography>
+                    </Typography>
                     <IconButton color="inherit">
 
                         <ExitToAppIcon />
