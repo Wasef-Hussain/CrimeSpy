@@ -13,12 +13,12 @@ import {Box,
   import {FaArrowUp,FaArrowDown,FaComment} from 'react-icons/fa'
   import {HiDotsHorizontal} from 'react-icons/hi'
 
-const Post = () =>{
+const Post = ({Title,Location,Discription}) =>{
 return(
-    <Box w="80%" h="auto" bg="#c1c1c1"  borderRadius="5px" overflow="hidden"> 
-    <Flex justify="space-between" px="10px" py="5px" bgColor="#221c22" overflow="hidden">
+    <Box w="80%" h="auto" bg="#c1c1c1"  borderRadius="5px" overflow="hidden" mx="auto" mt="10px"> 
+    <Flex justify="space-between" px="10px" py="5px" bgColor="#221c22">
       <Text fontWeight="bold" size="md" color="#ededea">
-        Robbery at gun point
+        {Title}
       </Text>
       <Menu>
     <MenuButton borderRadius="25px" as={IconButton} variant="link" icon={<Box size="25px" as={HiDotsHorizontal}></Box>}/>
@@ -31,13 +31,13 @@ return(
     
     <Image w="100%" src="https://via.placeholder.com/800x100" borderY="1px solid" ></Image>
     <Text size="sm" size="md" px="10px" py="5px">
-       sort of text
+       {Discription}
     </Text>
     <Text size="md" px="10px" py="5px">
       <Box as="span" fontWeight="bold">
         Location:
       </Box>
-      Sort of text
+      {Location}
     </Text>
     <Flex  justify="space-between" overflow="hidden" borderRadius="0px">
     <Flex overflow="hidden" as={Button} borderRadius="0px" bg="ededea" leftIcon={<Box size="20px" as={FaArrowUp}></Box>} grow="1">Up Vote</Flex>

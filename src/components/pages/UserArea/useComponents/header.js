@@ -3,7 +3,7 @@ import {Box,Flex,Heading,Image,Avatar,HStack,IconButton} from '@chakra-ui/react'
 import {ImMenu} from 'react-icons/im'
 const Head = ({Task}) =>{
 return(
-    <Flex position="static" w="100%" bgColor="#221c22" m="0" p="15px" color="white" justify='space-between' align="center">
+    <Flex boxSizing="border-box" position="static" w="100%" bgColor="#221c22" m="0" p="15px" color="white" justify='space-between' align="center">
       
       <HStack spacing="10px">
 

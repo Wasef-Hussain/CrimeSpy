@@ -4,10 +4,10 @@ import {ImMenu,ImExit} from 'react-icons/im'
 import {RiDashboardFill, RiSettings5Fill} from 'react-icons/ri'
 import {FaUserAlt,FaMapMarkedAlt} from 'react-icons/fa'
 
-const NavItem = ({ icon, children }) =>{
+const NavItem = ({ icon, children, onClick }) =>{
 return(
-    <Box w="200px"> 
-        <Button variant="link" leftIcon={<Box as={icon} fontSize="30px" />}>
+    <Box w="200px" onClick={onClick}> 
+        <Button variant="link" leftIcon={<Box as={icon} fontSize="30px"/>}>
             {children}
         </Button>
     </Box>
