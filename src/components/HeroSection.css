@@ -1,0 +1,50 @@
+.home_hero-img{
+    width: 100%;
+    Z-INDEX: -1;
+}
+
+
+.col {
+    margin-bottom: 15px;
+    padding-right: 15px;
+    padding-left: 15px;
+    flex: 1 1;
+    max-width: 50%;
+    flex-basis: 50%;
+    POSITION: ABSOLUTE;
+    top: 25%;
+    left: 19%;
+    OVERFLOW: hidden;
+
+  }
+  .heading_a{
+      background-image: url(images/backgound.jpg);
+      width: 100%;
+      Z-INDEX: -1;
+  }
+  .heading {
+    margin-bottom: 24px;
+    font-size: 48px;
+    line-height: 1.1;
+    font-weight: 600;
+    color: #f7f8fa;
+  }
+  .home_hero-subtitle {
+    max-width: 440px;
+    margin-bottom: 35px;
+    font-size: 18px;
+    line-height: 24px;
+    color: #fff;
+    font-family: 'CenturayGothic';
+    font-weight: 100;
+  }
+
+  .middle_content{
+      background-color: #224422;
+  }
+
+  .background_header{
+      height: auto;
+  }
+  
+  

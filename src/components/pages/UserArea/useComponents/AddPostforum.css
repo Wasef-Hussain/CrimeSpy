@@ -1,0 +1,12 @@
+.image_preview{
+position: relative;
+right: 5em;
+margin: 5px 0;
+}
+
+#image-preview{
+    display: none;
+    height: 105px;
+    width: auto;
+    border-radius: 4px;
+}
