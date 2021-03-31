@@ -1,0 +1,144 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
+
+
+
+body {
+  background-color: #12172b;
+  font-family: "Poppins", sans-serif;
+}
+
+.container1 {
+  
+  margin: 0px;
+  height: 600px;
+  width: 600px;
+  
+  color: white;
+  display: inline-flex;
+}
+
+.heading {
+
+  font-size: 70px;
+  color: white;
+}
+
+.heading span {
+  font-style: italic;
+  font-size: 70px;
+}
+
+.profiles {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 80px;
+}
+
+.profile {
+  flex-basis: 360px;
+}
+
+.profile .profile-img {
+  height: 360px;
+  width: 360px;
+  border-radius: 50%;
+  filter: grayscale(100%);
+  cursor: pointer;
+  transition: 400ms;
+}
+
+.profile:hover .profile-img {
+  filter: grayscale(0);
+}
+
+.user-name {
+  margin-top: 40px;
+  font-size: 42px;
+  text-align: center;
+}
+
+.profile h5 {
+  font-size: 24px;
+  font-weight: 150px;
+  letter-spacing: 2px;
+  color: #ccc;
+  text-align: center;
+  
+}
+
+.profile p {
+  font-size: 20px;
+  margin-top: 20px;
+  text-align: justify;
+}
+
+
+
+.fa {
+  padding: 20px;
+  font-size: 40px;
+  width: 70px;
+  margin: 6px 46px;
+}
+
+
+.fa:hover {
+  opacity: 0.7;
+}
+
+.fa-facebook {
+  color: white;
+}
+
+.fa-twitter {
+  color: white;
+}
+
+.fa-facebook:hover {
+  color:#00acee;
+}
+
+.fa-twitter:hover {
+
+  color: #00bfff;
+}
+
+/*
+@media only screen and (max-width: 1150px) {
+  .profiles {
+    flex-direction: column;
+  }
+
+  .profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile p {
+    text-align: center;
+    margin: 20px 60px 20px 60px;
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .heading {
+    font-size: 40px;
+    color: white;
+    text-align: center;
+  }
+
+  .heading span {
+    font-size: 15px;
+  }
+
+  .profiles {
+    margin: 20px 0;
+  }
+
+  .profile p {
+    margin: 20px 10px 20px 10px;
+  }
+}
+*/
