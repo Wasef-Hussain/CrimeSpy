@@ -18,6 +18,7 @@ import { db, storage } from '../../../firebase'
 import makeid from '../../../../helper/function'
 import {useAuth} from '../../../../LoginContext'
 import firebase from "firebase"
+import uuid from 'react-uuid'
 const AddPostForum=({IsOverlayOpen,OverlayOnClose,OnAdd})=>{
     const [Title,setTitle] = useState('')
     const [Discription,setDiscription] = useState('')
@@ -26,6 +27,8 @@ const AddPostForum=({IsOverlayOpen,OverlayOnClose,OnAdd})=>{
     const [image, setImage] = useState(null)
     const [progress, setProgress] = useState(0)
     const {currentUser} = useAuth();
+    const uuid = (a) => { return a?(a^Math.random()*16>>a/4).toString(16):([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g,uuid); };
+    const postRef = db.collection('posts');
     
     const CompleteTask = () =>{
         if((Title.trim() === (''))||(Discription.trim()===('')))
@@ -53,6 +56,8 @@ const AddPostForum=({IsOverlayOpen,OverlayOnClose,OnAdd})=>{
       
     }
 
+    const postId = uuid();
+
     const handleUpload = (e) =>{
       e.preventDefault();
       if((Title.trim() === (''))||(Discription.trim()===('')))
@@ -68,6 +73,7 @@ const AddPostForum=({IsOverlayOpen,OverlayOnClose,OnAdd})=>{
             // progress Funtion 1%
           const progress = Math.round((snapshot.bytesTransferred/snapshot.totalBytes)*100);
           setProgress(progress);
+          console.log(currentUser.uid);
 
           },(error) =>{
             console.log(error);
@@ -75,14 +81,27 @@ const AddPostForum=({IsOverlayOpen,OverlayOnClose,OnAdd})=>{
             // GET DOWNLOAD URL AND UPLOAD THE POST INFO
             storage.ref("images").child(`${imageName}.jpg`).getDownloadURL()
             .then((imageUrl) => {
-              db.collection("posts").add({
-                timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-                Title: Title,
-                Discription: Discription,
-                photoUrl: imageUrl,
-                userName: currentUser.displayName.toLowerCase(),
-                profileUrl: currentUser.photoURL
-              });
+
+              console.log(currentUser.uid);
+              console.log(postId);
+
+                postRef.doc(currentUser.uid).collection('userPosts').doc(postId).set({
+                  timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+                  postId: postId,
+                  ownerId: currentUser.uid,
+                  Title: Title,
+                  description: Discription,
+                  location: "",
+                  mediaUrl: imageUrl,
+                  username: currentUser.displayName.toLowerCase(),
+                  profileUrl: currentUser.photoURL
+                });
+                console.log(currentUser.uid);
+              console.log(postId);
+
+          
+            
+              // db.collection("posts").add();
             });
             setTitle('');
             setDiscription('');

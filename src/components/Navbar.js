@@ -131,13 +131,13 @@ function Navbar(props) {
         return <li className="nav-btn">
             {
                 button ? (
-                    <Link to='/register' className="btn-link" >
+                    <Link to='/login' className="btn-link" >
                         <Button buttonStyle='btn--outline'>
                             Sign Up
                                                     </Button>
                     </Link>
                 ) : (
-                        <Link to='/register' className="btn-link" onClick={closeMobileMenu}>
+                        <Link to='/login' className="btn-link" onClick={closeMobileMenu}>
                             <Button buttonStyle='btn--outline'
                                 buttonSize='btn--mobile'
                             >

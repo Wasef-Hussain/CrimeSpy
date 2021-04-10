@@ -16,7 +16,7 @@ import { Avatar } from '@material-ui/core'
 import { useAuth } from '../../../../LoginContext'
 import { db, storage } from '../../../firebase'
 
-const Post = ({Title,Discription,profileUrl,id,photoUrl,comments, username}) =>{
+const Post = ({Title,Discription,profileUrl,id,photoUrl,comments, username, location, error}) =>{
 
   const { currentUser } = useAuth();
   const deletePost = () => {
@@ -34,6 +34,7 @@ const Post = ({Title,Discription,profileUrl,id,photoUrl,comments, username}) =>{
       console.log(`Errors post info ${error}`);
     });
   }
+  console.log(Title);
 
 return(
     <Box w="60%" h="auto" bg="#c1c1c1"  borderRadius="5px" overflow="hidden" mx="auto" mt="10px"> 
@@ -44,7 +45,7 @@ return(
 
 </Avatar>
 <Text fontWeight="bold" size="md" color="#ededea" style={{marginLeft:'10px'}}>
-        {username}
+        {username} 
       </Text>
       </div>
       <Text fontWeight="bold" size="md" color="#ededea">

@@ -11,8 +11,10 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Button from '@material-ui/core/Button';
 
+
 import './Login.css'
 import { useAuth } from '../../../LoginContext'
+import { db } from '../../firebase';
 
 const Login = (props) => {
 
@@ -23,6 +25,7 @@ const Login = (props) => {
     const [error, setError] = useState(null);
     const [open, setOpen] = useState(false);
     const phoneref = useRef();
+    const {currentUser} = useAuth();
     const nameref = useRef();
 
     const handleClickOpen = () => {
@@ -71,7 +74,7 @@ const Login = (props) => {
             //  setError('')
              setLoading(true)
             // // await login(emailRef.current.value, passwordRef.current.value)
-            await submitsignInWithFacebook() 
+            await submitsignInWithFacebook();
             history.push("/beta")
             // console.log('working')
         } catch {
@@ -115,7 +118,7 @@ const Login = (props) => {
                      
                             
                             
-                            <div className={'btnAuth'}><button style={{ border: 'none',background:'#50c2ec' }} onClick={handleClickOpen} ><PhoneIcon style={{ margin:'auto' }}/>  Login with PhoneNumer</button></div>
+                            <div className={'btnAuth'}><button style={{ border: 'none',background:'#50c2ec' }} onClick={()=>history.push("/phoneauth")} ><PhoneIcon style={{ margin:'auto' }}/>  Login with PhoneNumer</button></div>
                            <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
                            <form onSubmit={handlephone}>
                            <DialogTitle id="form-dialog-title">PhoneNumer</DialogTitle>

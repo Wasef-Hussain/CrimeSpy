@@ -23,6 +23,7 @@ import Register from './components/pages/Login/Register';
 import PrivateRoute from './components/PrivateRoute'
 import AdminDashboard from './components/Dashboard/Dashboard'
 import Udashboard from './components/pages/UserArea/udashboard'
+import PhoneAuthe from './././components/PhoneAuthe'
 import { ChakraProvider, extendTheme } from "@chakra-ui/react"
 import {createBreakpoints} from '@chakra-ui/theme-tools'
 const breakpoints = createBreakpoints({"640px":"640px"})
@@ -56,6 +57,11 @@ const routes = [
     path: "/map",
     layout: true,
     component: Mapcrime
+  },
+  {
+    path:"/phoneauth",
+    layout:false,
+    component: PhoneAuthe
   },
 
   

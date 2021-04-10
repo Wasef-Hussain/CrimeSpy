@@ -50,15 +50,21 @@ export function UserProvider({ children }) {
     }
  function submitsignInWithFacebook()
  {
-     return auth.signInWithPopup(facebookProvider).then((result,error)=>{
-         if(error)
-         {
-             alert('Error', error);
+    
+     return auth.signInWithPopup(facebookProvider).then(
+       async result =>{
+             let user = result.user;
+             const userMap = {
+                uid: user.uid,
+                email: user.email,
+                username: user.displayName,
+                timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+              };
+             return await db.collection('users').doc(user.uid).set(userMap).then((docRef)=>{
+
+             })
          }
-         else {
-             alert(result)
-         }
-     });
+     );
  }
 
  function addfbuser(email,displayName)
