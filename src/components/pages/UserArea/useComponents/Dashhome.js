@@ -20,7 +20,7 @@ const Dashhome = ({ Task, Posts }) => {
     .doc(currentUser.uid)
     .collection("userPosts");
   useEffect(() => {
-    postRef.onSnapshot((snapshot) => {
+    postRef.orderBy("timestamp","desc").onSnapshot((snapshot) => {
       setPosts(snapshot.docs.map((doc) => ({ id: doc.id, post: doc.data() })));
     });
     console.log(posts);
@@ -124,6 +124,7 @@ const Dashhome = ({ Task, Posts }) => {
             Title={post.Title}
             location={currentLocation}
              error={currentError}
+             comments={post.comments}
           />
         );
       })}

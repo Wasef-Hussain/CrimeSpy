@@ -94,6 +94,7 @@ const AddPostForum=({IsOverlayOpen,OverlayOnClose,OnAdd})=>{
                   location: "",
                   mediaUrl: imageUrl,
                   username: currentUser.displayName.toLowerCase(),
+                  
                   profileUrl: currentUser.photoURL
                 });
                 console.log(currentUser.uid);

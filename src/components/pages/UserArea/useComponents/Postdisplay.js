@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState, } from 'react'
 import {Box,
     Text,
     Button,
@@ -10,15 +10,24 @@ import {Box,
     MenuList,
     MenuItem,
     Icon} from '@chakra-ui/react'
-  import {FaArrowUp,FaArrowDown,FaComment} from 'react-icons/fa'
+  import {FaArrowUp,FaArrowDown,FaComment,FaCheck} from 'react-icons/fa'
   import {HiDotsHorizontal} from 'react-icons/hi'
 import { Avatar } from '@material-ui/core'
 import { useAuth } from '../../../../LoginContext'
 import { db, storage } from '../../../firebase'
+import Comment from './comments/index'
 
 const Post = ({Title,Discription,profileUrl,id,photoUrl,comments, username, location, error}) =>{
 
+  // useEffect(() => {
+  //  console.log(comments)
+  // }, [])
+
   const { currentUser } = useAuth();
+  const postRef = db
+    .collection("posts")
+    .doc(currentUser.uid)
+    .collection("userPosts");
   const deletePost = () => {
     var imageRef = storage.refFromURL(photoUrl);
 
@@ -28,7 +37,7 @@ const Post = ({Title,Discription,profileUrl,id,photoUrl,comments, username, loca
       console.log(`Errors ${error}`);
     });
 
-    db.collection("posts").doc(id).delete().then(function(){
+    postRef.doc(id).delete().then(function(){
       console.log("delete Post info successfully");
     }).catch(function(error){
       console.log(`Errors post info ${error}`);
@@ -61,7 +70,7 @@ return(
     </Menu>
     </Flex>
     
-    <Image width="100%" src={photoUrl} borderY="1px solid" style={{margin:'16 0', objectFit:'cover'}} ></Image>
+    <Image width="100%" src={photoUrl} borderY="1px solid" style={{margin:'16px 0px', objectFit:'cover', padding:'10px', borderRadius:'5px'}} ></Image>
     <Text size="sm" size="md" px="10px" py="5px">
        {Discription}
     </Text>
@@ -72,10 +81,17 @@ return(
       {Location}
     </Text> */}
     <Flex  justify="space-between" overflow="hidden" borderRadius="0px">
-    <Flex overflow="hidden" as={Button} borderRadius="0px" bg="ededea" leftIcon={<Box size="20px" as={FaArrowUp}></Box>} grow="1">Up Vote</Flex>
+    <Flex overflow="hidden" as={Button} borderRadius="0px" bg="ededea" leftIcon={<Box size="20px" as={FaCheck}></Box>} grow="1">Verify</Flex>
     <Flex overflow="hidden" as={Button} borderRadius="0px" bg="ededea" leftIcon={<Box size="20px" as={FaComment}></Box>} grow="1">Comment</Flex>
-    <Flex overflow="hidden" as={Button} borderRadius="0px" bg="ededea" leftIcon={<Box size="20px" as={FaArrowDown}></Box>} grow="1">Down Vote</Flex>
+    {/* <Flex overflow="hidden" as={Button} borderRadius="0px" bg="ededea" leftIcon={<Box size="20px" as={FaArrowDown}></Box>} grow="1">Down Vote</Flex> */}
     </Flex> 
+    {comments ? (
+        comments.map((comment) => (
+          <Comment username={comment.username} comment={comment.comment} />
+        ))
+      ) : (
+        <></>
+      )}
     </Box> 
 )
 }

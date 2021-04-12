@@ -58,6 +58,7 @@ export function UserProvider({ children }) {
                 uid: user.uid,
                 email: user.email,
                 username: user.displayName,
+                displayName:user.displayName,
                 timestamp: firebase.firestore.FieldValue.serverTimestamp(),
               };
              return await db.collection('users').doc(user.uid).set(userMap).then((docRef)=>{

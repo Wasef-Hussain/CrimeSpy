@@ -62,6 +62,8 @@ export default function Orders() {
             <TableCell>Id</TableCell>
             <TableCell>Email</TableCell>
             <TableCell>Fullname</TableCell>
+            <TableCell>Display Name</TableCell>
+            <TableCell>Profile Photo</TableCell>
 
             {/* <TableCell align="right">Sale Amount</TableCell> */}
           </TableRow>
@@ -70,9 +72,12 @@ export default function Orders() {
           {users.map((user) => (
    
               <TableRow key={user.id}>
-              <TableCell>{user.id}</TableCell>
+              <TableCell>{user.uid}</TableCell>
               <TableCell>{user.email}</TableCell>
-              <TableCell>{user.fullname}</TableCell>
+              <TableCell>{user.username}</TableCell>
+              <TableCell>{user.displayName}</TableCell>
+              <TableCell>{user.photoUrl}</TableCell>
+              
               <TableCell align="right"><DeleteIcon onClick={()=>onDelete(user)} /></TableCell>
 
               {/* <TableCell align="right">{user.amount}</TableCell> */}
